@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+.text-color1 {
+  @apply bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent
+}
+.text-color2 {
+  @apply bg-gradient-to-r from-purple-300 to-indigo-400 bg-clip-text text-transparent
+}
