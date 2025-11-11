@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Electricity Bill",
+    "category": "Utilities",
+    "amount": 2500,
+    "location": "Dhaka",
+    "description": "Monthly electricity bill for October 2025",
+    "image": "https://i.ibb.co.com/pBc4TZPJ/matthew-henry-y-ETqk-Lnhs-UI-unsplash.jpg",
+    "date": "2025-10-31"
+  },
+  {
+    "title": "Water Bill",
+    "category": "Utilities",
+    "amount": 800,
+    "location": "Dhaka",
+    "description": "Monthly water bill for October 2025",
+    "image": "https://i.ibb.co.com/wF5cYRzJ/fresh-water-texture-background-transparent-liquid.jpg",
+    "date": "2025-10-31"
+  },
+  {
+    "title": "Internet Bill",
+    "category": "Internet & Communication",
+    "amount": 1200,
+    "location": "Dhaka",
+    "description": "Monthly internet bill for October 2025",
+    "image": "https://i.ibb.co.com/9kPtKx3k/futuristic-smart-city-with-5g-global-network-technology.jpg",
+    "date": "2025-10-31"
+  },
+  {
+    "title": "Gas Bill",
+    "category": "Utilities",
+    "amount": 950,
+    "location": "Dhaka",
+    "description": "Monthly gas bill for October 2025",
+    "image": "https://i.ibb.co.com/VWrjcZv4/closeup-shot-beautiful-blue-green-flame-gas-stove.jpg",
+    "date": "2025-10-31"
+  },
+  {
+    "title": "Mobile Recharge",
+    "category": "Mobile",
+    "amount": 500,
+    "location": "Dhaka",
+    "description": "Prepaid mobile recharge for October 2025",
+    "image": "https://i.ibb.co.com/Wv2TPsrc/lala-azizli-Rm-M-t-HRzm-JY-unsplash.jpg",
+    "date": "2025-10-30"
+  },
+  {
+    "title": "Rent Payment",
+    "category": "Housing",
+    "amount": 15000,
+    "location": "Dhaka",
+    "description": "Monthly apartment rent for November 2025",
+    "image": "https://i.ibb.co.com/9SMvQL6/jakub-zerdzicki-v-II6p2ii-C2g-unsplash.jpg",
+    "date": "2025-11-01"
+  },
+  {
+    "title": "School Fee",
+    "category": "Education",
+    "amount": 5000,
+    "location": "Dhaka",
+    "description": "Monthly school fee for October 2025",
+    "image": "https://i.ibb.co.com/VYgPT7QK/fajar-herlambang-studio-Tmdr-CRVDOn-Q-unsplash.jpg",
+    "date": "2025-10-25"
+  },
+  {
+    "title": "Grocery Shopping",
+    "category": "Food & Grocery",
+    "amount": 3000,
+    "location": "Dhaka",
+    "description": "Weekly grocery shopping at local supermarket",
+    "image": "https://i.ibb.co.com/JjfZz99p/jeremiah-lazo-Zke-GJOTy-Z7w-unsplash.jpg",
+    "date": "2025-11-05"
+  }
+]
