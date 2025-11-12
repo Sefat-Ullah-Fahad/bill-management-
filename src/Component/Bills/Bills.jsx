@@ -222,7 +222,7 @@ const Bills = () => {
 
               <button
                 onClick={() => navigate(`/bill/${bill._id}`)}
-                className="mt-auto w-full bg-gradient-to-r from-indigo-500 to-sky-400 text-white font-medium px-5 py-2 rounded-md hover:from-indigo-400 hover:to-sky-300 transition-all duration-300"
+                className="mt-auto w-full card-btn text-white  font-bold px-5 py-2 rounded-md  transition-all duration-300"
               >
                 View Details
               </button>

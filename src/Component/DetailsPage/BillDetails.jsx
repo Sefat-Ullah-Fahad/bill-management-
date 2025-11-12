@@ -315,7 +315,7 @@ const BillDetails = ({ onBillPaid }) => {
         <button
           disabled={!isCurrentMonth}
           onClick={() => setModalOpen(true)}
-          className={`mt-4 w-full py-2 rounded text-white ${isCurrentMonth ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"}`}
+          className={`mt-4 w-full py-2 rounded text-white ${isCurrentMonth ? "submit-btn" : "bg-gray-400 cursor-not-allowed"}`}
         >
           {isCurrentMonth ? "Pay Bill" : "Only current month bills can be paid"}
         </button>
@@ -341,8 +341,8 @@ const BillDetails = ({ onBillPaid }) => {
     </button>
 
     {/* Header */}
-    <h2 className="text-2xl font-extrabold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500">
-      Pay Bill
+    <h2 className="text-2xl font-extrabold mb-5 text-transparent ">
+      <span className="text-color2">Pay</span> <span className="text-color1">Bill</span>
     </h2>
 
     {/* Form */}
@@ -432,7 +432,7 @@ const BillDetails = ({ onBillPaid }) => {
       <div className="md:col-span-2">
         <button 
           type="submit" 
-          className="w-full py-3 font-bold text-white rounded-lg card-btn transition-all"
+          className="w-full py-3 font-bold submit-btn text-white rounded-lg card-btn transition-all"
         >
           Pay Bill
         </button>
