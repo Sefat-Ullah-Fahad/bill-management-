@@ -14,3 +14,20 @@
 .text-color2 {
   @apply bg-gradient-to-r from-purple-300 to-indigo-400 bg-clip-text text-transparent
 }
+
+.bg-color {
+   @apply bg-gradient-to-r from-cyan-300 to-blue-400
+}
+
+.bg-color2 {
+  @apply bg-gradient-to-r from-purple-100 to-indigo-200 text-black
+}
+
+.card-btn {
+  @apply bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600   hover:scale-105 hover:shadow-xl transition-all duration-300
+ 
+}
+
+.submit-btn{
+  @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 hover:scale-105 hover:shadow-xl transition-all duration-300
+}

@@ -14,6 +14,7 @@ import Register from './Component/Authintication/Register.jsx';
 import AuthProvider from './Context/AuthProvider.jsx';
 import PrivateRoute from './Routes/PriveteRoute.jsx';
 import BillDetails from './Component/DetailsPage/BillDetails.jsx';
+import NotFound from './Component/NotFound/NotFound.jsx';
 
 
 const router = createBrowserRouter([
@@ -50,8 +51,13 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <BillDetails></BillDetails>
         </PrivateRoute>
-      }
-    ]
+      },
+       {
+      path: '*',
+      element: <NotFound></NotFound>
+    }
+    ],
+   
   },
 ]);
 

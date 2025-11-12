@@ -71,10 +71,10 @@ const Bills = () => {
       <h2 className="text-3xl font-bold text-center mb-8"><span className="text-color2">Recent</span> <span className="text-color1">Bills</span></h2>
 
       {/* Card Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 ">
 
         {bills.map(bill => (
-          <div key={bill._id} className="border rounded-lg shadow hover:shadow-lg transition p-4">
+          <div key={bill._id} className="bg-base-100 border border-gray-600 rounded-2xl shadow hover:shadow-lg transition p-4">
 
             {/* Image */}
             <img
@@ -93,7 +93,7 @@ const Bills = () => {
             {/* Button */}
             <button
               onClick={() => navigate(`/bill/${bill._id}`)} // navigate hook
-              className="w-full bg-blue-600 text-white py-2 rounded mt-3 hover:bg-blue-700"
+              className="w-full card-btn text-white font-bold   py-2 rounded mt-3 "
             >
               View Details
             </button>

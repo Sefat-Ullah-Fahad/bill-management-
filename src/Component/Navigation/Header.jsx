@@ -126,13 +126,13 @@ const Header = () => {
           />
 
           {showProfile && (
-            <div className="absolute right-0 mt-2 w-48  shadow-lg rounded-lg p-3 z-50">
+            <div className="absolute right-0 mt-2 w-48  shadow-lg rounded-lg p-3 z-50 bg-gray-300 ">
               <p className="font-semibold">{user?.displayName || "User"}</p>
-              <p className="text-sm text-gray-600 mb-2">{user?.email}</p>
+              <p className="text-sm  mb-2">{user?.email}</p>
 
               <button
                 onClick={handleLogout}
-                className="btn btn-sm btn-error w-full"
+                className="btn btn-sm bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white w-full"
               >
                 Logout
               </button>
@@ -164,7 +164,7 @@ const Header = () => {
   );
 
   return (
-    <header className=" bg-gray-400 shadow-md sticky top-0 z-50">
+    <header className=" bg-color2 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-800">
@@ -191,7 +191,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden  shadow-md">
+        <nav className="md:hidden   shadow-md">
           <div className="flex flex-col gap-2 p-4">{links}
 
 
