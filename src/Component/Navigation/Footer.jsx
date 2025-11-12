@@ -87,7 +87,7 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Footer = () => {
   return (
@@ -95,9 +95,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Brand */}
         <div>
-          <h2 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-            YourSiteName
-          </h2>
+          <NavLink to="/">
+            <img className="w-16 h-16 rounded-[50%]" src="/logo-4.jpg" alt="site logo" />
+          </NavLink>
           <p className="mt-3 text-sm text-white/80">
             We help businesses grow with creative design & digital solutions.
           </p>

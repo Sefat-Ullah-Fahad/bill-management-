@@ -169,7 +169,7 @@ const Header = () => {
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-800">
           <NavLink to="/">
-            <img className="w-14 h-14" src="/logo.jpg" alt="site logo" />
+            <img className="w-16 h-16 rounded-[50%]" src="/logo-4.jpg" alt="site logo" />
           </NavLink>
         </div>
 

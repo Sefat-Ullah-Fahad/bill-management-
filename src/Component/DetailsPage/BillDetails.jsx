@@ -328,49 +328,7 @@ const BillDetails = ({ onBillPaid }) => {
 
 
 
-        // <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        //   <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
-        //     <button onClick={() => setModalOpen(false)} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 font-bold">×</button>
-        //     <h2 className="text-xl font-bold mb-4">Pay Bill</h2>
-        //     <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        //       <div>
-        //         <label>Email:</label>
-        //         <input type="email" name="email" value={formData.email} readOnly className="border w-full p-2 rounded bg-gray-100"/>
-        //       </div>
-        //       <div>
-        //         <label>Bill ID:</label>
-        //         <input type="text" name="billId" value={formData.billId} readOnly className="border w-full p-2 rounded bg-gray-100"/>
-        //       </div>
-        //       <div>
-        //         <label>Amount:</label>
-        //         <input type="number" name="amount" value={formData.amount} readOnly className="border w-full p-2 rounded bg-gray-100"/>
-        //       </div>
-        //       <div>
-        //         <label>Date:</label>
-        //         <input type="date" name="date" value={formData.date} readOnly className="border w-full p-2 rounded bg-gray-100"/>
-        //       </div>
-        //       <div>
-        //         <label>Username:</label>
-        //         <input type="text" name="username" value={formData.username} onChange={handleChange} className="border w-full p-2 rounded" required/>
-        //       </div>
-        //       <div>
-        //         <label>Address:</label>
-        //         <input type="text" name="address" value={formData.address} onChange={handleChange} className="border w-full p-2 rounded" required/>
-        //       </div>
-        //       <div>
-        //         <label>Phone:</label>
-        //         <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="border w-full p-2 rounded" required/>
-        //       </div>
-        //       <div className="md:col-span-2">
-        //         <label>Additional Info:</label>
-        //         <textarea name="info" value={formData.info} onChange={handleChange} className="border w-full p-2 rounded"/>
-        //       </div>
-        //       <div className="md:col-span-2">
-        //         <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Pay Bill</button>
-        //       </div>
-        //     </form>
-        //   </div>
-        // </div>
+      
 
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md relative shadow-lg transition-colors duration-300">
