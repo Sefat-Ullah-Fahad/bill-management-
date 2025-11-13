@@ -173,136 +173,149 @@ const BillDetails = ({ onBillPaid }) => {
       </div>
 
       {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md relative shadow-lg transition-colors duration-300">
-            {/* Close Button */}
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute top-3 right-3 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white font-bold text-xl transition-colors duration-200"
-            >
-              ×
-            </button>
+     
 
-            {/* Header */}
-            <h2 className="text-2xl font-extrabold mb-5 text-transparent ">
-              <span className="text-color2">Pay</span>{" "}
-              <span className="text-color1">Bill</span>
-            </h2>
 
-            {/* Form */}
-            <form
-              onSubmit={handleSubmit}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
-            >
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Email:
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  readOnly
-                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Bill ID:
-                </label>
-                <input
-                  type="text"
-                  name="billId"
-                  value={formData.billId}
-                  readOnly
-                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Amount:
-                </label>
-                <input
-                  type="number"
-                  name="amount"
-                  value={formData.amount}
-                  readOnly
-                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Date:
-                </label>
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  readOnly
-                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Username:
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Address:
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Phone:
-                </label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                  required
-                />
-              </div>
-              <div className="md:col-span-2">
-                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
-                  Additional Info:
-                </label>
-                <textarea
-                  name="info"
-                  value={formData.info}
-                  onChange={handleChange}
-                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-                />
-              </div>
-              <div className="md:col-span-2">
-                <button
-                  type="submit"
-                  className="w-full py-3 font-bold submit-btn text-white rounded-lg card-btn transition-all"
-                >
-                  Pay Bill
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
+  <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl w-full max-w-md relative shadow-lg transition-colors duration-300 my-8">
+    {/* Close Button */}
+    <button
+      onClick={() => setModalOpen(false)}
+      className="absolute top-3 right-3 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white font-bold text-xl transition-colors duration-200"
+    >
+      ×
+    </button>
+
+    {/* Header */}
+    <h2 className="text-2xl font-extrabold mb-5 text-transparent text-center">
+      <span className="text-color2">Pay</span>{" "}
+      <span className="text-color1">Bill</span>
+    </h2>
+
+    {/* Form */}
+    <form
+      onSubmit={handleSubmit}
+      className="grid grid-cols-1 md:grid-cols-2 gap-4"
+    >
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Email:
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          readOnly
+          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Bill ID:
+        </label>
+        <input
+          type="text"
+          name="billId"
+          value={formData.billId}
+          readOnly
+          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Amount:
+        </label>
+        <input
+          type="number"
+          name="amount"
+          value={formData.amount}
+          readOnly
+          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Date:
+        </label>
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          readOnly
+          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Username:
+        </label>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+          required
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Address:
+        </label>
+        <input
+          type="text"
+          name="address"
+          value={formData.address}
+          onChange={handleChange}
+          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+          required
+        />
+      </div>
+
+      <div>
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Phone:
+        </label>
+        <input
+          type="text"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+          required
+        />
+      </div>
+
+      <div className="md:col-span-2">
+        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+          Additional Info:
+        </label>
+        <textarea
+          name="info"
+          value={formData.info}
+          onChange={handleChange}
+          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+        />
+      </div>
+
+      <div className="md:col-span-2">
+        <button
+          type="submit"
+          className="w-full py-3 font-bold submit-btn text-white rounded-lg card-btn transition-all"
+        >
+          Pay Bill
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
       )}
     </div>
   );
