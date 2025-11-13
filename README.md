@@ -1,16 +1,46 @@
-# React + Vite
+# Utility Bill Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Site URL](https://your-live-site-url.com)  
 
-Currently, two official plugins are available:
+The **Utility Bill Management System** is a MERN Stack-based web application that allows users to view, manage, and pay their monthly utility bills including Electricity, Gas, Water, and Internet. The system provides a secure and responsive user interface with advanced functionalities like dynamic bill filtering, PDF report download, and personalized bill management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **User Authentication**: Secure login and registration using email/password or Google OAuth.
+- **Dynamic Bill Management**: View, pay, update, and delete bills based on the current month.
+- **Bill Filtering**: Filter bills by category (Electricity, Gas, Water, Internet) dynamically without page reload.
+- **PDF Report Download**: Users can download their paid bills as a PDF report using jsPDF and jsPDF-AutoTable.
+- **Responsive Design**: Fully responsive UI that works seamlessly on mobile, tablet, and desktop screens.
+- **Realistic Data**: Database preloaded with realistic bills including title, category, amount, location, description, image, and date.
+- **Extra UI Enhancements**: Features carousel, category cards, recent bills, dynamic route titles, loading spinners, toast notifications, and dark/light theme toggle.
+- **Secure Private Routes**: Only logged-in users can access My Pay Bills and Bill Details pages.
+- **Modern Design**: Clean, consistent, and visually appealing layout inspired by top UI resources.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technology Stack
+
+- **Frontend**: React, React Router, Tailwind CSS, SweetAlert/Toast, jsPDF
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase Authentication (Email/Password & Google OAuth)
+- **Hosting**: Client-side (Netlify/Surge/Firebase), Server-side (Vercel)
+
+---
+
+## Screenshots
+
+![Home Page](./screenshots/home.png)  
+![Bills Page](./screenshots/bills.png)  
+![Bill Details](./screenshots/bill-details.png)  
+![My Pay Bills](./screenshots/my-pay-bills.png)
+
+---
+
+## Getting Started
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/your-username/utility-bill-management.git
