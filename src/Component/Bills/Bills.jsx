@@ -32,7 +32,7 @@ const Bills = () => {
       const data = await res.json();
       setBills(data);
     } catch (error) {
-      console.error("Failed to load bills:", error);
+      console.error("Failed to Load bills:", error);
     } finally {
       setLoading(false);
     }
