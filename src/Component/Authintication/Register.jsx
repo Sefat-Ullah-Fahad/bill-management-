@@ -5,6 +5,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
+import usePageTitle from "../../utils/usePageTitle";
 // import { AuthContext } from "../contexts/AuthContext"; // path ঠিক করে নাও
 
 const Register = () => {
@@ -16,6 +17,12 @@ const Register = () => {
   const [photo, setPhoto] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+
+        // ✅ Use custom hook for dynamic title
+    usePageTitle("Register | Utility Bill System");
+
+
 
   // Password Validation
   const validatePassword = (password) => {

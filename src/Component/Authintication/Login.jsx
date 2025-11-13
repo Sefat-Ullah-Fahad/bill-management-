@@ -5,6 +5,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import usePageTitle from "../../utils/usePageTitle";
 // import { AuthContext } from "../contexts/AuthContext"; // AuthContext এর path ঠিক করে নিতে হবে
 
 const Login = () => {
@@ -13,6 +14,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+
+      // ✅ Use custom hook for dynamic title
+    usePageTitle("Login | Utility Bill System");
+
+
 
   // Email/Password Login Handler
   const handleLogin = async (e) => {
