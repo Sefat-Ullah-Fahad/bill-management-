@@ -125,6 +125,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import usePageTitle from "../../utils/usePageTitle";
 
 const Bills = () => {
   const navigate = useNavigate();
@@ -133,6 +134,12 @@ const Bills = () => {
   const [loading, setLoading] = useState(false);
 
   const categories = ["Electricity", "Gas", "Water", "Internet"];
+
+
+      // ✅ Use custom hook for dynamic title
+    usePageTitle("Bills | Utility Bill System");
+
+
 
   // ✅ Fetch Bills From Backend
   const fetchBills = async (category) => {

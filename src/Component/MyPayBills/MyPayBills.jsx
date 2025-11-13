@@ -266,6 +266,7 @@ import { toast } from "react-hot-toast";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { AuthContext } from "../../Context/AuthContext";
+import usePageTitle from "../../utils/usePageTitle";
 
 const MyPayBills = () => {
   const { user } = useContext(AuthContext);
@@ -296,6 +297,12 @@ const MyPayBills = () => {
       setLoading(false);
     }
   };
+
+
+        // ✅ Use custom hook for dynamic title
+  usePageTitle("Pay My Bills  | Bills Management");
+
+
 
   useEffect(() => {
     if (email) fetchBills();

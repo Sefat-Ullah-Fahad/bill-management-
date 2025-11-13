@@ -182,6 +182,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthContext";
+import usePageTitle from "../../utils/usePageTitle";
 
 const BillDetails = ({ onBillPaid }) => {
   const { id } = useParams();
@@ -201,6 +202,12 @@ const BillDetails = ({ onBillPaid }) => {
     date: new Date().toISOString().split("T")[0],
     info: "",
   });
+
+
+      // ✅ Use custom hook for dynamic title
+  usePageTitle("Bills | Details");
+
+
 
   useEffect(() => {
     setLoading(true);
