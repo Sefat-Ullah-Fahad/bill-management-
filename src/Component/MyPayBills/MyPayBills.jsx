@@ -249,21 +249,29 @@ const MyPayBills = () => {
             <h3 className="text-xl font-bold mb-3">Update Bill</h3>
 
             <form onSubmit={handleUpdate} className="space-y-2">
-              <input
+              <div>
+                <label className=" font-bold">Address</label>
+                <input
                 className="input border p-2 w-full rounded"
                 name="address"
                 value={formData.address || ""}
                 onChange={handleChange}
                 required
               />
-              <input
+              </div>
+              <div>
+                 <label className=" font-bold">Phone Number</label>
+                <input
                 className="input border p-2 w-full rounded"
                 name="phone"
                 value={formData.phone || ""}
                 onChange={handleChange}
                 required
               />
-              <input
+              </div>
+             <div>
+               <label className=" font-bold">Date</label>
+               <input
                 type="date"
                 className="input border p-2 w-full rounded"
                 name="date"
@@ -271,7 +279,10 @@ const MyPayBills = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+             </div>
+             <div>
+              <label className=" font-bold">Price</label>
+               <input
                 type="number"
                 className="input border p-2 w-full rounded"
                 name="amount"
@@ -279,6 +290,7 @@ const MyPayBills = () => {
                 onChange={handleChange}
                 required
               />
+             </div>
 
               <button
                 className="w-full py-2 submit-btn rounded-xl"
