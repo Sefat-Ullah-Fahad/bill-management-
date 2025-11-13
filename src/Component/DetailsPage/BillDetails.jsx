@@ -1,9 +1,3 @@
-
-
-
-
-
-
 // import React, { useEffect, useState, useContext } from "react";
 // import { useParams, useNavigate } from "react-router-dom";
 // import { toast, Toaster } from "react-hot-toast"; // Toaster import
@@ -31,7 +25,7 @@
 
 //   useEffect(() => {
 //     setLoading(true);
-//     fetch(`http://localhost:2000/bills/${id}`)
+//     fetch(`https://bill-management-server-black.vercel.app/bills/${id}`)
 //       .then(res => res.json())
 //       .then(data => {
 //         setBill(data);
@@ -53,7 +47,7 @@
 //   const handleSubmit = async e => {
 //     e.preventDefault();
 //     try {
-//       const res = await fetch("http://localhost:2000/myBills", {
+//       const res = await fetch("https://bill-management-server-black.vercel.app/myBills", {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify(formData),
@@ -183,9 +177,6 @@
 
 // export default BillDetails;
 
-
-
-
 // BillDetails.jsx
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -213,37 +204,49 @@ const BillDetails = ({ onBillPaid }) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:2000/bills/${id}`)
-      .then(res => res.json())
-      .then(data => {
+    fetch(`https://bill-management-server-black.vercel.app/bills/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
         setBill(data);
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
           amount: data.amount,
-          billId: data._id || data.billsId
+          billId: data._id || data.billsId,
         }));
       })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p className="text-center mt-10 text-xl font-semibold">Loading...</p>;
-  if (!bill) return <p className="text-center mt-10 text-xl font-semibold">Bill not found!</p>;
+  if (loading)
+    return (
+      <p className="text-center mt-10 text-xl font-semibold">Loading...</p>
+    );
+  if (!bill)
+    return (
+      <p className="text-center mt-10 text-xl font-semibold">Bill not found!</p>
+    );
 
   const billDate = new Date(bill.date);
   const now = new Date();
-  const isCurrentMonth = billDate.getMonth() === now.getMonth() && billDate.getFullYear() === now.getFullYear();
+  const isCurrentMonth =
+    billDate.getMonth() === now.getMonth() &&
+    billDate.getFullYear() === now.getFullYear();
 
-  const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:2000/myBills", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://bill-management-server-black.vercel.app/myBills",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const savedBill = await res.json();
 
@@ -299,152 +302,178 @@ const BillDetails = ({ onBillPaid }) => {
   return (
     <div className="max-w-3xl mx-auto p-4 md:p-6">
       <Toaster position="top-right" reverseOrder={false} />
-      <button onClick={() => navigate(-1)} className="mb-4  text-white py-2 px-4 rounded card-btn">← Back</button>
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-4  text-white py-2 px-4 rounded card-btn"
+      >
+        ← Back
+      </button>
 
       <div className="border rounded-lg shadow-lg p-4 md:p-6">
-        <img src={bill.image} alt={bill.title} className="w-full h-56 md:h-64 object-cover rounded-lg" />
+        <img
+          src={bill.image}
+          alt={bill.title}
+          className="w-full h-56 md:h-64 object-cover rounded-lg"
+        />
         <h2 className="text-2xl font-bold mt-4">{bill.title}</h2>
         <p className="text-gray-500">{bill.date}</p>
         <div className="mt-4 space-y-1">
-          <p><strong>Category:</strong> {bill.category}</p>
-          <p><strong>Amount:</strong> {bill.amount} BDT</p>
-          <p><strong>Location:</strong> {bill.location}</p>
-          <p><strong>Email:</strong> {bill.email}</p>
+          <p>
+            <strong>Category:</strong> {bill.category}
+          </p>
+          <p>
+            <strong>Amount:</strong> {bill.amount} BDT
+          </p>
+          <p>
+            <strong>Location:</strong> {bill.location}
+          </p>
+          <p>
+            <strong>Email:</strong> {bill.email}
+          </p>
         </div>
         <p className="mt-3 text-gray-400">{bill.description}</p>
         <button
           disabled={!isCurrentMonth}
           onClick={() => setModalOpen(true)}
-          className={`mt-4 w-full py-2 rounded text-white ${isCurrentMonth ? "submit-btn" : "bg-gray-400 cursor-not-allowed"}`}
+          className={`mt-4 w-full py-2 rounded text-white ${
+            isCurrentMonth ? "submit-btn" : "bg-gray-400 cursor-not-allowed"
+          }`}
         >
           {isCurrentMonth ? "Pay Bill" : "Only current month bills can be paid"}
         </button>
       </div>
 
       {modalOpen && (
-
-
-
-
-
-
-      
-
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-  <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md relative shadow-lg transition-colors duration-300">
-    {/* Close Button */}
-    <button 
-      onClick={() => setModalOpen(false)} 
-      className="absolute top-3 right-3 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white font-bold text-xl transition-colors duration-200"
-    >
-      ×
-    </button>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-full max-w-md relative shadow-lg transition-colors duration-300">
+            {/* Close Button */}
+            <button
+              onClick={() => setModalOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white font-bold text-xl transition-colors duration-200"
+            >
+              ×
+            </button>
 
-    {/* Header */}
-    <h2 className="text-2xl font-extrabold mb-5 text-transparent ">
-      <span className="text-color2">Pay</span> <span className="text-color1">Bill</span>
-    </h2>
+            {/* Header */}
+            <h2 className="text-2xl font-extrabold mb-5 text-transparent ">
+              <span className="text-color2">Pay</span>{" "}
+              <span className="text-color1">Bill</span>
+            </h2>
 
-    {/* Form */}
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Email:</label>
-        <input 
-          type="email" 
-          name="email" 
-          value={formData.email} 
-          readOnly 
-          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Bill ID:</label>
-        <input 
-          type="text" 
-          name="billId" 
-          value={formData.billId} 
-          readOnly 
-          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Amount:</label>
-        <input 
-          type="number" 
-          name="amount" 
-          value={formData.amount} 
-          readOnly 
-          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Date:</label>
-        <input 
-          type="date" 
-          name="date" 
-          value={formData.date} 
-          readOnly 
-          className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Username:</label>
-        <input 
-          type="text" 
-          name="username" 
-          value={formData.username} 
-          onChange={handleChange} 
-          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-          required
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Address:</label>
-        <input 
-          type="text" 
-          name="address" 
-          value={formData.address} 
-          onChange={handleChange} 
-          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-          required
-        />
-      </div>
-      <div>
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Phone:</label>
-        <input 
-          type="text" 
-          name="phone" 
-          value={formData.phone} 
-          onChange={handleChange} 
-          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-          required
-        />
-      </div>
-      <div className="md:col-span-2">
-        <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">Additional Info:</label>
-        <textarea 
-          name="info" 
-          value={formData.info} 
-          onChange={handleChange} 
-          className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
-        />
-      </div>
-      <div className="md:col-span-2">
-        <button 
-          type="submit" 
-          className="w-full py-3 font-bold submit-btn text-white rounded-lg card-btn transition-all"
-        >
-          Pay Bill
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
-
-
-
+            {/* Form */}
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  readOnly
+                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Bill ID:
+                </label>
+                <input
+                  type="text"
+                  name="billId"
+                  value={formData.billId}
+                  readOnly
+                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Amount:
+                </label>
+                <input
+                  type="number"
+                  name="amount"
+                  value={formData.amount}
+                  readOnly
+                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Date:
+                </label>
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  readOnly
+                  className="border w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Username:
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleChange}
+                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Address:
+                </label>
+                <input
+                  type="text"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Phone:
+                </label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block mb-1 text-gray-700 dark:text-gray-200 font-medium">
+                  Additional Info:
+                </label>
+                <textarea
+                  name="info"
+                  value={formData.info}
+                  onChange={handleChange}
+                  className="border w-full p-2 rounded bg-white dark:bg-gray-700 dark:text-white border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 transition-colors"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full py-3 font-bold submit-btn text-white rounded-lg card-btn transition-all"
+                >
+                  Pay Bill
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );

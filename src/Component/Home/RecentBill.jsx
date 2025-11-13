@@ -5,7 +5,7 @@
 //   const [bills, setBills] = useState([]);
 
 //   useEffect(() => {
-//     fetch("http://localhost:2000/bills/recent")
+//     fetch("https://bill-management-server-black.vercel.app/bills/recent")
 //       .then((res) => res.json())
 //       .then((data) => setBills(data))
 //       .catch((err) => console.log(err));
@@ -41,7 +41,6 @@
 
 // export default RecentBill;
 
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -50,7 +49,7 @@ const RecentBill = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:2000/bills/recent")
+    fetch("https://bill-management-server-black.vercel.app/bills/recent")
       .then((res) => res.json())
       .then((data) => setBills(data))
       .catch((err) => console.log(err));
@@ -63,7 +62,9 @@ const RecentBill = () => {
 
   return (
     <div className="mt-10 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">Recent <span className="text-color1">Bills</span></h2>
+      <h2 className="text-2xl font-bold mb-5 text-center sm:text-left">
+        Recent <span className="text-color1">Bills</span>
+      </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6">
         {bills.map((bill) => (

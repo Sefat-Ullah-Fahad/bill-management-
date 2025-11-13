@@ -4,7 +4,7 @@
 
 
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -13,6 +13,9 @@ const Header = () => {
   const [showProfile, setShowProfile] = useState(false);
 
   const { user, logOut } = useContext(AuthContext);
+  
+
+
   const navigate = useNavigate();
 
   console.log(user)
@@ -29,15 +32,20 @@ const Header = () => {
   };
 
 
+
+
+    // theme
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  console.log(theme)
+
+  useEffect(()=>{
+     const html = document.querySelector('html')
+     html.setAttribute('data-theme', theme)
+     localStorage.setItem('theme', theme)
+  }, [theme])
+
   const handleTheme = (checked) => {
-    console.log(checked)
-    const html = document.querySelector('html')
-    if(checked) {
-      html.setAttribute('data-theme', 'dark')
-    }
-    else{
-      html.setAttribute('data-theme', 'light')
-    }
+   setTheme(checked ? 'dark' : 'light')
 
   }
 
@@ -164,7 +172,7 @@ const Header = () => {
   );
 
   return (
-    <header className=" bg-color2 shadow-md sticky top-0 z-50">
+    <header className=" bg-base-100 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-800">

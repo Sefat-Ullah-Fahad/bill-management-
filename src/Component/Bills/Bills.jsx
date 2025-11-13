@@ -1,5 +1,3 @@
-
-
 // import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
@@ -15,7 +13,7 @@
 //   const fetchBills = (category) => {
 //     setLoading(true);
 
-//     let url = "http://localhost:2000/bills";
+//     let url = "https://bill-management-server-black.vercel.app/bills";
 //     if (category && category !== "All") {
 //       url += `?category=${category}`;
 //     }
@@ -64,7 +62,6 @@
 //       {/* Card Grid */}
 //       {!loading && bills.length > 0 && (
 
-
 //         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 //   {bills.map((bill) => (
 //     <div
@@ -100,9 +97,6 @@
 //   ))}
 // </div>
 
-
-
-
 //       )}
 
 //       {/* Spinner CSS */}
@@ -129,9 +123,6 @@
 
 // export default Bills;
 
-
-
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -148,7 +139,7 @@ const Bills = () => {
     try {
       setLoading(true);
 
-      let url = "http://localhost:2000/bills";
+      let url = "https://bill-management-server-black.vercel.app/bills";
       if (category !== "All") {
         url += `?category=${category}`;
       }
@@ -171,7 +162,8 @@ const Bills = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <h2 className="text-3xl font-bold text-center mb-8">
-        <span className="text-color2">All</span> <span className="text-color1">Bills</span>
+        <span className="text-color2">All</span>{" "}
+        <span className="text-color1">Bills</span>
       </h2>
 
       {/* ✅ Category Filter */}
@@ -181,9 +173,11 @@ const Bills = () => {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
-          <option  value="All">All Bills</option>
+          <option value="All">All Bills</option>
           {categories.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
           ))}
         </select>
       </div>
@@ -197,7 +191,9 @@ const Bills = () => {
 
       {/* ✅ No Data */}
       {!loading && bills.length === 0 && (
-        <p className="text-center text-gray-500 mt-10 text-lg">No bills found for this category.</p>
+        <p className="text-center text-gray-500 mt-10 text-lg">
+          No bills found for this category.
+        </p>
       )}
 
       {/* ✅ Bills Grid */}
@@ -213,11 +209,19 @@ const Bills = () => {
                 alt={bill.title}
                 className="w-full h-40 sm:h-48 object-cover rounded-md mb-4"
               />
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">{bill.title}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                {bill.title}
+              </h3>
 
-              <p className="mb-1"><span className="font-medium">Category:</span> {bill.category}</p>
-              <p className="mb-1"><span className="font-medium">Amount:</span> {bill.amount} BDT</p>
-              <p className="mb-2"><span className="font-medium">Location:</span> {bill.location}</p>
+              <p className="mb-1">
+                <span className="font-medium">Category:</span> {bill.category}
+              </p>
+              <p className="mb-1">
+                <span className="font-medium">Amount:</span> {bill.amount} BDT
+              </p>
+              <p className="mb-2">
+                <span className="font-medium">Location:</span> {bill.location}
+              </p>
               <p className="text-sm text-gray-400 mb-4">{bill.date}</p>
 
               <button
