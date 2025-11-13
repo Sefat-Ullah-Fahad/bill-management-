@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Banner from './Banner';
-import RecentBill from './RecentBill';
+
 import CategorySection from './CategorySection';
 import Bills from './AddBills';
 import HowItWorks from './HowItWorks';

@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
 
   return (
     <div className="py-12 bg-base-300">
-      <h2 className="text-3xl font-bold text-center mb-8">Why Choose Us?</h2>
+      <h2 className="text-3xl font-bold text-center mb-8"><span className="text-color2">Why</span> <span className="text-color1">Choose Us?</span> </h2>
 
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-6">
         {items.map((item, i) => (

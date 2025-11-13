@@ -26,7 +26,7 @@ const Bills = () => {
         {bills.map((bill) => (
           <div
             key={bill._id}
-            className="bg-base-100 border border-gray-600 rounded-2xl shadow hover:shadow-lg transition p-4"
+            className="bg-base-100 border border-base-300 rounded-2xl shadow hover:shadow-lg transition p-4"
           >
             {/* Image */}
             <img

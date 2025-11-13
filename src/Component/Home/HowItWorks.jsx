@@ -10,7 +10,7 @@ const HowItWorks = () => {
 
   return (
     <div className="py-12 bg-base-300">
-      <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
+      <h2 className="text-3xl font-bold text-center mb-8"><span className="text-color2">How It</span> <span className="text-color1">Works</span></h2>
 
       <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
         {steps.map((s, i) => (
